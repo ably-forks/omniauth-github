@@ -20,6 +20,12 @@ module OmniAuth
               params[v.to_sym] = request.params[v]
             end
           end
+          if request.params[:state].present?
+            params[:state] = request.params[:state]
+          else
+            params[:state] = SecureRandom.hex(24)
+          end
+          session['omniauth.state'] = params[:state]
         end
       end
 
