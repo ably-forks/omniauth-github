@@ -21,7 +21,7 @@ module OmniAuth
             end
           end
           if request.params[:state].present?
-            params[:state] = request.params[:state]
+            params[:state] = request.params[:state]
           else
             params[:state] = SecureRandom.hex(24)
           end
